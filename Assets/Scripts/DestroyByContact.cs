@@ -26,6 +26,7 @@ public class DestroyByContact : MonoBehaviour {
         Instantiate(explosion, transform.position, transform.rotation);
         if (other.tag == "Player") {
             Instantiate(playerExplosion, other.transform.position, other.transform.rotation);
+            gc.GameOver();
         }
         gc.AddScore(scoreValue);
         Destroy(other.gameObject); //the bolt or the player
