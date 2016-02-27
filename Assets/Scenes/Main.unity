@@ -399,7 +399,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 597616295}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.45, y: 0.5, z: 0}
+  m_LocalPosition: {x: 0.5, y: 0.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1617511835}
@@ -413,8 +413,8 @@ GUIText:
   m_Enabled: 1
   serializedVersion: 3
   m_Text: Game Over Text
-  m_Anchor: 0
-  m_Alignment: 0
+  m_Anchor: 4
+  m_Alignment: 1
   m_PixelOffset: {x: 0, y: 0}
   m_LineSpacing: 1
   m_TabSize: 4
@@ -455,7 +455,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d241c001e10163340884b738f3c6da0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hazard: {fileID: 129554, guid: 1a86411613bc82b4494d389323b8a79a, type: 2}
+  hazards:
+  - {fileID: 129554, guid: 1a86411613bc82b4494d389323b8a79a, type: 2}
+  - {fileID: 194692, guid: b4b6e8059cf24364c89a3b86dff4a62e, type: 2}
+  - {fileID: 130718, guid: 9d39e7a6e153f08459cc5daf30155de7, type: 2}
   spawnValues: {x: 6, y: 0, z: 16}
   hazardCount: 10
   spawnWait: 0.5
