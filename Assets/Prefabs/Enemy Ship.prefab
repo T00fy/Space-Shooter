@@ -62,6 +62,7 @@ GameObject:
   - 114: {fileID: 11425010}
   - 114: {fileID: 11404522}
   - 82: {fileID: 8276550}
+  - 114: {fileID: 11470604}
   - 114: {fileID: 11450986}
   m_Layer: 0
   m_Name: Enemy Ship
@@ -89,7 +90,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 199862}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 9}
+  m_LocalPosition: {x: 0, y: 0, z: 8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 488250}
@@ -257,8 +258,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shot: {fileID: 116450, guid: 30d8a8c54ae0b77448de89e68e3194e1, type: 2}
   shotSpawn: {fileID: 488250}
-  minFireRate: 0.3
-  maxFireRate: 1
+  minFireRate: 0.5
+  maxFireRate: 1.5
   delay: 0.5
 --- !u!114 &11425010
 MonoBehaviour:
@@ -289,13 +290,25 @@ MonoBehaviour:
   smoothing: 7.5
   tilt: 10
   startWait: {x: 0.5, y: 1}
-  manoeuverDuration: {x: 0, y: 0}
-  manoeuverWait: {x: 1, y: 2}
+  manoeuvreDuration: {x: 1, y: 2}
+  manoeuvreWait: {x: 1, y: 2}
   boundary:
-    xMin: 0
-    xMax: 0
-    zMin: 0
-    zMax: 0
+    xMin: -6
+    xMax: 6
+    zMin: -20
+    zMax: 20
+--- !u!114 &11470604
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 199862}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17c1690cffd2f894f8d2b6ee5af6bfcd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: -5
 --- !u!135 &13502342
 SphereCollider:
   m_ObjectHideFlags: 1
@@ -1824,7 +1837,67 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: m_LocalPosition.z
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: boundary.xMin
+      value: -6
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: boundary.xMax
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: boundary.zMin
+      value: -20
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: boundary.zMax
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: speed
+      value: -5
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: manoeuverDuration.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: manoeuverDuration.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: minFireRate
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: maxFireRate
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: manoeuvreDuration.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: manoeuvreDuration.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: manoeuvreWait.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: manoeuvreWait.y
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 199862}
