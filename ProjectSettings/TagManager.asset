@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Boundary
   - Enemy
+  - Medium
+  - Easy
   layers:
   - Default
   - TransparentFX

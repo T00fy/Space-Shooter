@@ -456,10 +456,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hazards:
-  - {fileID: 129554, guid: 1a86411613bc82b4494d389323b8a79a, type: 2}
-  - {fileID: 194692, guid: b4b6e8059cf24364c89a3b86dff4a62e, type: 2}
-  - {fileID: 130718, guid: 9d39e7a6e153f08459cc5daf30155de7, type: 2}
-  - {fileID: 199862, guid: 3557ea85718b79b47ab521f46020e9ba, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   spawnValues: {x: 6, y: 0, z: 16}
   hazardCount: 1
   spawnWait: 3
