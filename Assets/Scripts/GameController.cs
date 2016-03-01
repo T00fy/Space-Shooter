@@ -10,23 +10,27 @@ public class GameController : MonoBehaviour {
     public float startWait;
     public float waveWait;
     public GUIText scoreText;
-    
+    public GUIText waveText;
     public GUIText restartText;
     public GUIText gameOverText;
 
     private bool gameOver;
     private bool restart;
     private int score;
+    private bool waitForWave;
+    private float waveElapsed;
 
     void Start() {
         gameOver = false;
         restart = false;
+        waitForWave = false;
+        waveElapsed = waveWait;
         restartText.text = "";
         gameOverText.text = "";
         score = 0;
         UpdateScore();
-        StartCoroutine (SpawnWaves());  //A coroutine is a function that can suspend its execution (yield) until the given given YieldInstruction finishes.
-
+        StartCoroutine (SpawnWaves());  //A coroutine is a function that can suspend its execution (yield) until the given YieldInstruction finishes.
+        
     }
 
     void Update() {
@@ -37,6 +41,13 @@ public class GameController : MonoBehaviour {
             }
 
         }
+
+
+        if (waitForWave){
+            UpdateWaveTime();
+
+        }
+
 
     }
     IEnumerator SpawnWaves()
@@ -51,7 +62,9 @@ public class GameController : MonoBehaviour {
                 Instantiate(hazards[(Random.Range(0,hazards.Length))], spawnPosition, spawnRotation);
                 yield return new WaitForSeconds(spawnWait);
             }
+            waitForWave = true;
             yield return new WaitForSeconds(waveWait);
+            ResetWaveText();
             if (gameOver) {
                 restartText.text = "Press R to restart.";
                 restart = true;
@@ -60,6 +73,23 @@ public class GameController : MonoBehaviour {
         }
     }
 
+    private void ResetWaveText()
+    {
+        waitForWave = false;
+        waveElapsed = waveWait;
+        waveText.text = "Next Wave: "; 
+    }
+
+    private void UpdateWaveTime()
+    {
+        waveElapsed = waveElapsed - Time.deltaTime;
+        if (waveElapsed > 0)
+        {
+            waveText.text = "Next Wave: " + waveElapsed.ToString("0.00");
+        }
+        
+        
+    }
 
     public void AddScore(int newScoreValue) {
         score += newScoreValue;
