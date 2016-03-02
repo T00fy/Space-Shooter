@@ -3,6 +3,8 @@ using System.Collections;
 using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour {
+    public GameObject[] easyEnemies;
+    public GameObject[] mediumEnemies;
     public GameObject[] hazards;
     public Vector3 spawnValues;
     public int hazardCount;
@@ -13,14 +15,18 @@ public class GameController : MonoBehaviour {
     public GUIText waveText;
     public GUIText restartText;
     public GUIText gameOverText;
+    public float difficulty;
 
     private bool gameOver;
     private bool restart;
     private int score;
     private bool waitForWave;
     private float waveElapsed;
+    private int waveCount;
+    //private GameObject[] easyEnemies;
 
     void Start() {
+        waveCount = 0;
         gameOver = false;
         restart = false;
         waitForWave = false;
@@ -59,12 +65,45 @@ public class GameController : MonoBehaviour {
             {
                 Vector3 spawnPosition = new Vector3(Random.Range(-spawnValues.x, spawnValues.x), spawnValues.y, spawnValues.z);
                 Quaternion spawnRotation = Quaternion.identity; //no rotation at all
-                Instantiate(hazards[(Random.Range(0,hazards.Length))], spawnPosition, spawnRotation);
+                if (waveCount < 8)
+                {
+                    SpawnEasyEnemy(spawnPosition, spawnRotation);
+                }
+                else {
+                    float rand = Random.Range(0, 10);
+                    float modifier = waveCount / 10;
+                    if (modifier > 2.5) {
+                        modifier = 2.5f;
+                    }
+                    rand = rand + modifier;
+
+                    if (rand < 5)
+                    {
+                        SpawnEasyEnemy(spawnPosition, spawnRotation);
+                    }
+                    else {
+                        Instantiate(hazards[(Random.Range(0, hazards.Length))], spawnPosition, spawnRotation);
+                    }
+                }
+
+                // Instantiate(hazards[(Random.Range(0,hazards.Length))], spawnPosition, spawnRotation);
                 yield return new WaitForSeconds(spawnWait);
             }
             waitForWave = true;
-            yield return new WaitForSeconds(waveWait);
+            if (waveCount < 7)
+            {
+                yield return new WaitForSeconds(0);
+            }
+            else {
+                yield return new WaitForSeconds(waveWait);
+            }
+            
+            if (waveWait < 6) {
+                waveWait = waveWait + 0.2f;
+            }
+            waveCount++;
             ResetWaveText();
+            UpdateDifficulty();
             if (gameOver) {
                 restartText.text = "Press R to restart.";
                 restart = true;
@@ -73,11 +112,41 @@ public class GameController : MonoBehaviour {
         }
     }
 
+    private void UpdateDifficulty()
+    {
+        spawnWait = spawnWait - difficulty * Random.Range(1.2f, 1.8f);
+        hazardCount = hazardCount + Random.Range(1,3);
+
+    }
+
+    private void SpawnEasyEnemy(Vector3 spawnPosition, Quaternion spawnRotation)
+    {
+          Instantiate(easyEnemies[(Random.Range(0, easyEnemies.Length))], spawnPosition, spawnRotation);
+    }
+
+    private void SpawnMediumEnemy(Vector3 spawnPosition, Quaternion spawnRotation)
+    {
+        Instantiate(mediumEnemies[(Random.Range(0, mediumEnemies.Length))], spawnPosition, spawnRotation);
+    }
+
+    private GameObject[] GetEnemies(string tag)
+    {
+        GameObject[] foundObjects = GameObject.FindGameObjectsWithTag(tag);
+        GameObject[] parentObjects = new GameObject[foundObjects.Length+1];
+        for(int i = 0; i < foundObjects.Length; i++) {
+            parentObjects[i] = foundObjects[i].transform.parent.gameObject;
+        }
+        
+        return parentObjects;
+            
+
+    }
+
     private void ResetWaveText()
     {
         waitForWave = false;
         waveElapsed = waveWait;
-        waveText.text = "Next Wave: "; 
+        waveText.text = ""; 
     }
 
     private void UpdateWaveTime()

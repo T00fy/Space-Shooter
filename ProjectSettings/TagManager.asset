@@ -8,6 +8,7 @@ TagManager:
   - Enemy
   - Medium
   - Easy
+  - Bolt
   layers:
   - Default
   - TransparentFX

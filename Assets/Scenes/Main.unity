@@ -455,20 +455,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d241c001e10163340884b738f3c6da0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  easyEnemies:
+  - {fileID: 186616, guid: 1a86411613bc82b4494d389323b8a79a, type: 2}
+  - {fileID: 173616, guid: b4b6e8059cf24364c89a3b86dff4a62e, type: 2}
+  - {fileID: 176374, guid: 9d39e7a6e153f08459cc5daf30155de7, type: 2}
+  - {fileID: 136914, guid: f581f9e2053a30a4585564467c4b6556, type: 2}
+  - {fileID: 107440, guid: a356eaaf40e4b6a4fad7786a4666ceb4, type: 2}
+  mediumEnemies:
+  - {fileID: 134154, guid: 3557ea85718b79b47ab521f46020e9ba, type: 2}
   hazards:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 186616, guid: 1a86411613bc82b4494d389323b8a79a, type: 2}
+  - {fileID: 173616, guid: b4b6e8059cf24364c89a3b86dff4a62e, type: 2}
+  - {fileID: 176374, guid: 9d39e7a6e153f08459cc5daf30155de7, type: 2}
+  - {fileID: 134154, guid: 3557ea85718b79b47ab521f46020e9ba, type: 2}
+  - {fileID: 136914, guid: f581f9e2053a30a4585564467c4b6556, type: 2}
   spawnValues: {x: 6, y: 0, z: 16}
   hazardCount: 1
-  spawnWait: 3
+  spawnWait: 2
   startWait: 1
-  waveWait: 10
+  waveWait: 2
   scoreText: {fileID: 1404991445}
   waveText: {fileID: 1324852689}
   restartText: {fileID: 2142480951}
   gameOverText: {fileID: 597616297}
+  difficulty: 0.1
 --- !u!4 &696008576
 Transform:
   m_ObjectHideFlags: 0
@@ -852,7 +862,7 @@ GUIText:
   m_GameObject: {fileID: 1324852687}
   m_Enabled: 1
   serializedVersion: 3
-  m_Text: 'Next Wave:'
+  m_Text: 
   m_Anchor: 6
   m_Alignment: 0
   m_PixelOffset: {x: 10, y: -10}
