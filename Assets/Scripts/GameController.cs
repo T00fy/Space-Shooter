@@ -26,6 +26,7 @@ public class GameController : MonoBehaviour {
     //private GameObject[] easyEnemies;
 
     void Start() {
+        Screen.SetResolution(600, 900, false);
         waveCount = 0;
         gameOver = false;
         restart = false;
@@ -114,8 +115,15 @@ public class GameController : MonoBehaviour {
 
     private void UpdateDifficulty()
     {
-        spawnWait = spawnWait - difficulty * Random.Range(1.2f, 1.8f);
-        hazardCount = hazardCount + Random.Range(1,3);
+        if (hazardCount > 15)
+        {
+            spawnWait = Random.Range(0.45f, 0.6f);
+            hazardCount += Random.Range(0, 2);
+        }
+        else {
+            spawnWait = spawnWait - difficulty * Random.Range(1.2f, 1.8f);
+            hazardCount = hazardCount + Random.Range(1, 3);
+        }
 
     }
 

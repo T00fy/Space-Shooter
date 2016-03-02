@@ -461,6 +461,7 @@ MonoBehaviour:
   - {fileID: 176374, guid: 9d39e7a6e153f08459cc5daf30155de7, type: 2}
   - {fileID: 136914, guid: f581f9e2053a30a4585564467c4b6556, type: 2}
   - {fileID: 107440, guid: a356eaaf40e4b6a4fad7786a4666ceb4, type: 2}
+  - {fileID: 107440, guid: a356eaaf40e4b6a4fad7786a4666ceb4, type: 2}
   mediumEnemies:
   - {fileID: 134154, guid: 3557ea85718b79b47ab521f46020e9ba, type: 2}
   hazards:

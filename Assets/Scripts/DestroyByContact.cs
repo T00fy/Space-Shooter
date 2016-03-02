@@ -49,11 +49,11 @@ public class DestroyByContact : MonoBehaviour
             {
                 Rigidbody fragmentRb = splitAsteroids[i].GetComponent<Rigidbody>();
                 fragmentRb.constraints = RigidbodyConstraints.FreezePositionY;
+                splitAsteroids[i].tag = "Enemy";
             }
             for (int i = 0; i < splitAsteroids.Length; i++) {
                 Instantiate(splitAsteroids[i], transform.position, transform.rotation * Random.rotation);
             }
-            
             if (other.CompareTag("Bolt"))
             {
                 Destroy(other.gameObject);
@@ -65,11 +65,4 @@ public class DestroyByContact : MonoBehaviour
             Destroy(gameObject);
         }
     }
-  /*  void OnTriggerExit(Collider other) {
-        if (fragmentable)
-        {
-            Instantiate(copyArray, new Vector3(1,1,1), Quaternion.identity);
-        }
-
-    }*/
 }
