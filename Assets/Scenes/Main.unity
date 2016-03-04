@@ -317,6 +317,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+--- !u!114 &507639211
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 507639206}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1647d37311b3254f864c27305f34375, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 1
 --- !u!114 &507639212
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -338,6 +350,18 @@ MonoBehaviour:
   shot: {fileID: 160592, guid: 1c99556cfd412a74b85cdabe263fac4c, type: 2}
   shotSpawn: {fileID: 1203835572}
   fireRate: 0.25
+--- !u!114 &507639213
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 507639206}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae9b169d594e603439e14f3bc3437097, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 1
 --- !u!1001 &514998688
 Prefab:
   m_ObjectHideFlags: 0

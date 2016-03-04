@@ -30,6 +30,8 @@ GameObject:
   - 114: {fileID: 11460742}
   - 114: {fileID: 11476366}
   - 114: {fileID: 11494616}
+  - 114: {fileID: 11495264}
+  - 114: {fileID: 11479192}
   m_Layer: 9
   m_Name: Asteroid02
   m_TagString: Enemy
@@ -138,6 +140,18 @@ MonoBehaviour:
   splitAsteroids: []
   fragmentable: 0
   scoreValue: 10
+--- !u!114 &11479192
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 173616}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1647d37311b3254f864c27305f34375, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 1
 --- !u!114 &11494616
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -150,6 +164,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: -5
+--- !u!114 &11495264
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 173616}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae9b169d594e603439e14f3bc3437097, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 1
 --- !u!136 &13691300
 CapsuleCollider:
   m_ObjectHideFlags: 1
@@ -177,6 +203,14 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_Layer
       value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: health
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: damage
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

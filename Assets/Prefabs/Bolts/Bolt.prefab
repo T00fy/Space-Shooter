@@ -11,6 +11,8 @@ GameObject:
   - 54: {fileID: 5497000}
   - 136: {fileID: 13601684}
   - 114: {fileID: 11497274}
+  - 114: {fileID: 11485880}
+  - 114: {fileID: 11483386}
   m_Layer: 0
   m_Name: Bolt
   m_TagString: Bolt
@@ -108,6 +110,30 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &11483386
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 160592}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1647d37311b3254f864c27305f34375, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 1
+--- !u!114 &11485880
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 160592}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae9b169d594e603439e14f3bc3437097, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 1
 --- !u!114 &11497274
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -147,6 +173,14 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_TagString
       value: Bolt
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: health
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: damage
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

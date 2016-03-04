@@ -10,7 +10,10 @@ public class DestroyByContact : MonoBehaviour
     public bool fragmentable;
     public int scoreValue;
     private GameController gc;
-    private Mover move;
+    private HealthController healthControllerFirstObj;
+    private DamageController damageControllerFirstObj;
+    private HealthController healthControllerSecondObj;
+    private DamageController damageControllerSecondObj;
 
     void Start()
     {
@@ -26,42 +29,72 @@ public class DestroyByContact : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        switch (other.tag) {
+        switch (other.tag)
+        {
             case "Boundary":
                 return;
             case "Enemy":
                 return;
-            case "Player":
-                Instantiate(playerExplosion, other.transform.position, other.transform.rotation);
-                gc.GameOver();
-                break;
         }
-        
-        if (explosion != null && !gameObject.CompareTag("Laser")) {
-            Instantiate(explosion, transform.position, transform.rotation);
+        healthControllerFirstObj = gameObject.GetComponent<HealthController>();
+        damageControllerFirstObj = gameObject.GetComponent<DamageController>();
+        healthControllerSecondObj = other.gameObject.GetComponent<HealthController>();
+        damageControllerSecondObj = other.gameObject.GetComponent<DamageController>();
+        int healthFirstObj = healthControllerFirstObj.GetHealth();
+        int damageDealtFirstObj = damageControllerFirstObj.GetDamage();
+        int healthSecondObj = healthControllerSecondObj.GetHealth();
+        int damageDealtSecondObj = damageControllerSecondObj.GetDamage();
+        if (damageDealtSecondObj < healthFirstObj)
+        {
+            healthControllerFirstObj.SetHealth(healthFirstObj - damageDealtSecondObj);
+            Debug.Log(healthControllerFirstObj.GetHealth());
+        }
+        else {
+            DestroyFirstObject();
+        }
+        if (damageDealtFirstObj < healthSecondObj) {
+            healthControllerSecondObj.SetHealth(healthSecondObj - damageDealtFirstObj);
+        }
+        else {
+            DestroySecondObject(other);
         }
 
-        if (gameObject.CompareTag("Laser")) {
-            Destroy(other.gameObject);
-            return;
+    }
+
+    private void DestroySecondObject(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            Instantiate(playerExplosion, other.transform.position, other.transform.rotation);
+            gc.GameOver();
         }
 
-        if (other.CompareTag("Laser")) {
-            Destroy(gameObject);
-            return;
-        }
         gc.AddScore(scoreValue);
 
         if (fragmentable)
         {
             BreakIntoFragments(other);
         }
-        else{
-            Destroy(other.gameObject); //the bolt or the player
-            Destroy(gameObject);
+        else { //the bolt or the player
+            Destroy(other.gameObject);
+        }
+    }
+
+    private void DestroyFirstObject()
+    {
+        if (CompareTag("Player"))
+        {
+            Instantiate(playerExplosion, transform.position, transform.rotation);
+            gc.GameOver();
         }
 
 
+        if (explosion != null)
+        {
+            Instantiate(explosion, transform.position, transform.rotation);
+        }
+        gc.AddScore(scoreValue);
+        Destroy(gameObject);
     }
 
     void BreakIntoFragments(Collider other)
@@ -73,7 +106,7 @@ public class DestroyByContact : MonoBehaviour
             splitAsteroids[i].tag = "Enemy";
         }
         for (int i = 0; i < splitAsteroids.Length; i++)
-        {
+        { 
             Instantiate(splitAsteroids[i], transform.position, transform.rotation * Random.rotation);
         }
         if (other.CompareTag("Bolt"))

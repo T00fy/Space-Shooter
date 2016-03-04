@@ -13,6 +13,8 @@ GameObject:
   - 114: {fileID: 11477916}
   - 23: {fileID: 2391800}
   - 114: {fileID: 11428610}
+  - 114: {fileID: 11480020}
+  - 114: {fileID: 11468362}
   m_Layer: 0
   m_Name: LaserBeam
   m_TagString: Laser
@@ -81,6 +83,18 @@ MonoBehaviour:
   splitAsteroids: []
   fragmentable: 0
   scoreValue: 0
+--- !u!114 &11468362
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 136996}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1647d37311b3254f864c27305f34375, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 100
 --- !u!114 &11477916
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -97,6 +111,18 @@ MonoBehaviour:
   m_setLinePropertiesAtStart: 0
   m_lineColor: {r: 1, g: 0.93103445, b: 0, a: 1}
   m_lineWidth: 0
+--- !u!114 &11480020
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 136996}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae9b169d594e603439e14f3bc3437097, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 100
 --- !u!136 &13687928
 CapsuleCollider:
   m_ObjectHideFlags: 1
@@ -120,6 +146,14 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_IsTrigger
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: health
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: damage
+      value: 100
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
