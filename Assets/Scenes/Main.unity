@@ -201,6 +201,10 @@ Prefab:
       propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: d9808401c68af274a8edfbed3d1b53c7, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d9808401c68af274a8edfbed3d1b53c7, type: 3}
   m_IsPrefabParent: 0
@@ -463,14 +467,16 @@ MonoBehaviour:
   - {fileID: 136914, guid: f581f9e2053a30a4585564467c4b6556, type: 2}
   - {fileID: 107440, guid: a356eaaf40e4b6a4fad7786a4666ceb4, type: 2}
   - {fileID: 107440, guid: a356eaaf40e4b6a4fad7786a4666ceb4, type: 2}
-  mediumEnemies:
-  - {fileID: 134154, guid: 3557ea85718b79b47ab521f46020e9ba, type: 2}
+  - {fileID: 168076, guid: 31dd08172f5f18b409544bf65d7af453, type: 2}
   hazards:
   - {fileID: 186616, guid: 1a86411613bc82b4494d389323b8a79a, type: 2}
   - {fileID: 173616, guid: b4b6e8059cf24364c89a3b86dff4a62e, type: 2}
   - {fileID: 176374, guid: 9d39e7a6e153f08459cc5daf30155de7, type: 2}
   - {fileID: 134154, guid: 3557ea85718b79b47ab521f46020e9ba, type: 2}
   - {fileID: 136914, guid: f581f9e2053a30a4585564467c4b6556, type: 2}
+  - {fileID: 107440, guid: a356eaaf40e4b6a4fad7786a4666ceb4, type: 2}
+  - {fileID: 129496, guid: afea5e246c798a849990b647768b1e98, type: 2}
+  - {fileID: 168076, guid: 31dd08172f5f18b409544bf65d7af453, type: 2}
   spawnValues: {x: 6, y: 0, z: 16}
   hazardCount: 1
   spawnWait: 2

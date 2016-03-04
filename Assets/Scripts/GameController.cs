@@ -4,7 +4,6 @@ using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour {
     public GameObject[] easyEnemies;
-    public GameObject[] mediumEnemies;
     public GameObject[] hazards;
     public Vector3 spawnValues;
     public int hazardCount;
@@ -130,11 +129,6 @@ public class GameController : MonoBehaviour {
     private void SpawnEasyEnemy(Vector3 spawnPosition, Quaternion spawnRotation)
     {
           Instantiate(easyEnemies[(Random.Range(0, easyEnemies.Length))], spawnPosition, spawnRotation);
-    }
-
-    private void SpawnMediumEnemy(Vector3 spawnPosition, Quaternion spawnRotation)
-    {
-        Instantiate(mediumEnemies[(Random.Range(0, mediumEnemies.Length))], spawnPosition, spawnRotation);
     }
 
     private GameObject[] GetEnemies(string tag)

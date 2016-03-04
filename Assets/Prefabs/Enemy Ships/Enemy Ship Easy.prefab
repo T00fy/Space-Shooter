@@ -31,7 +31,7 @@ GameObject:
   - 114: {fileID: 11497596}
   - 82: {fileID: 8246988}
   - 114: {fileID: 11416806}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Enemy Ship Easy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -269,6 +269,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   explosion: {fileID: 100012, guid: 384371afbb4354cc9a3fc68eab303756, type: 2}
   playerExplosion: {fileID: 100008, guid: a93496017806b7740910df5fd946f306, type: 2}
+  splitAsteroids: []
+  fragmentable: 0
   scoreValue: 20
 --- !u!114 &11497596
 MonoBehaviour:
@@ -1814,7 +1816,11 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 136914}

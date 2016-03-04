@@ -26,43 +26,56 @@ public class DestroyByContact : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Boundary") || other.CompareTag("Enemy"))
-        {
-            return;
-        }
-
-        if (explosion != null)
-        {
-            Instantiate(explosion, transform.position, transform.rotation);
-        } //can leave explosion empty in inspector
-
-
-        if (other.CompareTag("Player"))
-        {
-            Instantiate(playerExplosion, other.transform.position, other.transform.rotation);
-            gc.GameOver();
+        switch (other.tag) {
+            case "Boundary":
+                return;
+            case "Enemy":
+                return;
+            case "Player":
+                Instantiate(playerExplosion, other.transform.position, other.transform.rotation);
+                gc.GameOver();
+                break;
         }
         gc.AddScore(scoreValue);
+        if (explosion != null && !gameObject.CompareTag("Laser")) {
+            Instantiate(explosion, transform.position, transform.rotation);
+        }
+
+        switch (gameObject.tag) {
+            case "Laser":
+                Destroy(other.gameObject);
+                return;
+        }
+
         if (fragmentable)
         {
-            for (int i = 0; i < splitAsteroids.Length; i++)
-            {
-                Rigidbody fragmentRb = splitAsteroids[i].GetComponent<Rigidbody>();
-                fragmentRb.constraints = RigidbodyConstraints.FreezePositionY;
-                splitAsteroids[i].tag = "Enemy";
-            }
-            for (int i = 0; i < splitAsteroids.Length; i++) {
-                Instantiate(splitAsteroids[i], transform.position, transform.rotation * Random.rotation);
-            }
-            if (other.CompareTag("Bolt"))
-            {
-                Destroy(other.gameObject);
-            }
-            Destroy(gameObject);
+            BreakIntoFragments(other);
         }
         else {
             Destroy(other.gameObject); //the bolt or the player
             Destroy(gameObject);
         }
+
+
+    }
+
+    void BreakIntoFragments(Collider other)
+    {
+        for (int i = 0; i < splitAsteroids.Length; i++)
+        {
+            Rigidbody fragmentRb = splitAsteroids[i].GetComponent<Rigidbody>();
+            fragmentRb.constraints = RigidbodyConstraints.FreezePositionY;
+            splitAsteroids[i].tag = "Enemy";
+        }
+        for (int i = 0; i < splitAsteroids.Length; i++)
+        {
+            Instantiate(splitAsteroids[i], transform.position, transform.rotation * Random.rotation);
+        }
+        if (other.CompareTag("Bolt"))
+        {
+            Destroy(other.gameObject);
+        }
+        Destroy(gameObject);
+
     }
 }
