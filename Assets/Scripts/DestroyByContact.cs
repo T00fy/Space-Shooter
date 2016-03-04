@@ -36,22 +36,27 @@ public class DestroyByContact : MonoBehaviour
                 gc.GameOver();
                 break;
         }
-        gc.AddScore(scoreValue);
+        
         if (explosion != null && !gameObject.CompareTag("Laser")) {
             Instantiate(explosion, transform.position, transform.rotation);
         }
 
-        switch (gameObject.tag) {
-            case "Laser":
-                Destroy(other.gameObject);
-                return;
+        if (gameObject.CompareTag("Laser")) {
+            Destroy(other.gameObject);
+            return;
         }
+
+        if (other.CompareTag("Laser")) {
+            Destroy(gameObject);
+            return;
+        }
+        gc.AddScore(scoreValue);
 
         if (fragmentable)
         {
             BreakIntoFragments(other);
         }
-        else {
+        else{
             Destroy(other.gameObject); //the bolt or the player
             Destroy(gameObject);
         }
@@ -75,7 +80,10 @@ public class DestroyByContact : MonoBehaviour
         {
             Destroy(other.gameObject);
         }
-        Destroy(gameObject);
+        if (!gameObject.CompareTag("Laser")) {
+            Destroy(gameObject);
+        }
+        
 
     }
 }

@@ -292,8 +292,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shot: {fileID: 116450, guid: 30d8a8c54ae0b77448de89e68e3194e1, type: 2}
   shotSpawn: {fileID: 454788}
-  minFireRate: 0.5
-  maxFireRate: 1.5
+  minFireRate: 1.5
+  maxFireRate: 2
   delay: 0.5
 --- !u!114 &11492166
 MonoBehaviour:
@@ -1843,6 +1843,14 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_Layer
       value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: minFireRate
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: maxFireRate
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
