@@ -69,13 +69,21 @@ public class DestroyByContact : MonoBehaviour
             gc.GameOver();
         }
 
-        gc.AddScore(scoreValue);
+
+        for (int i = 0; i < other.transform.childCount; i++) {
+            if (other.transform.GetChild(i).CompareTag("PlayerWeapon"))
+            {
+                gc.AddScore(scoreValue);
+                break;
+            }
+        }
 
         if (fragmentable)
         {
             BreakIntoFragments(other);
         }
         else { //the bolt or the player
+
             Destroy(other.gameObject);
         }
     }
@@ -93,7 +101,7 @@ public class DestroyByContact : MonoBehaviour
         {
             Instantiate(explosion, transform.position, transform.rotation);
         }
-        gc.AddScore(scoreValue);
+//        gc.AddScore(scoreValue);
         Destroy(gameObject);
     }
 
