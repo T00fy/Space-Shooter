@@ -16,6 +16,7 @@ public class DestroyByContact : MonoBehaviour
     private HealthController healthControllerBolt;
     private DamageController damageControllerBolt;
     private bool dropPowerUp;
+    private bool readyToFragment;
 
     void Start()
     {
@@ -80,10 +81,6 @@ public class DestroyByContact : MonoBehaviour
             Instantiate(playerExplosion, other.transform.position, other.transform.rotation);
             gc.GameOver();
         }
-
-
-
-        Debug.Log("Ges");
             Destroy(other.gameObject);
     }
 
@@ -115,8 +112,8 @@ public class DestroyByContact : MonoBehaviour
         {
             BreakIntoFragments(other);
         }
-
-        Destroy(gameObject);
+            Destroy(gameObject);
+        
     }
 
     void CreatePowerUp()
@@ -133,10 +130,14 @@ public class DestroyByContact : MonoBehaviour
             splitAsteroids[i].tag = "Enemy";
         }
         int swap = 1;
+        var beforePos = other.transform.position;
+        var beforeRot = other.transform.rotation;
+        var temp = new Vector3(0, 0, 1);
+        other.transform.position += temp;
         for (int i = 0; i < splitAsteroids.Length; i++)
         {
             swap = swap * -1;
-            Instantiate(splitAsteroids[i], other.transform.position + new Vector3(swap * 1f,0,0), Quaternion.AngleAxis(90, swap * transform.right) * Random.rotation); //Random.rotation
+            Instantiate(splitAsteroids[i], beforePos, beforeRot * Quaternion.AngleAxis(90, swap * transform.right));/* * Random.rotation*/ //Random.rotation
         }
 
     }

@@ -11,7 +11,6 @@ public class FireLaserBeam : MonoBehaviour
     public float timeBetweenShots;
     private DroidMovement mover;
     private bool firstShot;
-    private CapsuleCollider capsCollider;
     private GameObject beam;
     // Use this for initialization
     void Start()
