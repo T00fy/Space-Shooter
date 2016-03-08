@@ -149,7 +149,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae9b169d594e603439e14f3bc3437097, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
+  health: 1
 --- !u!114 &11453458
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -196,7 +196,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 0}
       propertyPath: health
-      value: 100
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: damage
