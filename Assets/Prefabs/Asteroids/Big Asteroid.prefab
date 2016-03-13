@@ -140,7 +140,6 @@ MonoBehaviour:
   splitAsteroids:
   - {fileID: 186616, guid: 1a86411613bc82b4494d389323b8a79a, type: 2}
   - {fileID: 186616, guid: 1a86411613bc82b4494d389323b8a79a, type: 2}
-  powerUps: []
   fragmentable: 1
   scoreValue: 10
 --- !u!114 &11446354
