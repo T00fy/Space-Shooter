@@ -174,7 +174,8 @@ MonoBehaviour:
   explosion: {fileID: 100004, guid: 2857e183f4cd3df4e9096e5b578bd32f, type: 2}
   playerExplosion: {fileID: 100008, guid: a93496017806b7740910df5fd946f306, type: 2}
   splitAsteroids: []
-  powerUps: []
+  powerUps:
+  - {fileID: 194862, guid: 341ff1f235a77bd40a1b59d3384fcbbd, type: 2}
   fragmentable: 0
   scoreValue: 10
 --- !u!136 &13662596
@@ -198,6 +199,10 @@ Prefab:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 0}
+      propertyPath: powerUps.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
       propertyPath: m_Constraints
       value: 0
       objectReference: {fileID: 0}
@@ -212,6 +217,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: damage
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: powerUps.Array.data[1]
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

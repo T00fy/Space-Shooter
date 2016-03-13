@@ -118,7 +118,7 @@ public class DestroyByContact : MonoBehaviour
 
     void CreatePowerUp()
     {
-        Instantiate(powerUps[Random.Range(0, powerUps.Length)], transform.position, transform.rotation * Random.rotation);
+        Instantiate(powerUps[Random.Range(0, powerUps.Length)], transform.position, Random.rotation);
     }
 
     void BreakIntoFragments(Collider other)
